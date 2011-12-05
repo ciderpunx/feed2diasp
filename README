@@ -1,0 +1,77 @@
+FEED2DIASP(1)         User Contributed Perl Documentation        FEED2DIASP(1)
+
+
+
+NNAAMMEE
+       feed2diasp.pl : Get a feed and squish it into diaspora.
+
+   VVEERRSSIIOONN
+       0.1
+
+SSYYNNOOPPSSIISS
+       Edit feed2diasp.json to set up your account details then just:
+
+       $ feed2diasp.pl
+
+       You probably want to run this as a cronjob
+
+DDEESSCCRRIIPPTTIIOONN
+       Install by untarring with
+
+       $ tar xvzf feed2diasp.tar.gz
+
+       Then
+
+       $ cd feed2diasp
+
+       You'll need to make sure you have Perl 5.10.0 and the CPAN
+       dependencies.
+
+       $ sudo cpan XML::Feed Readonly HTML::Strip Data::Dumper WWW::Mechanize
+
+       Then copy the example config file and edit it to something more to your
+       taste.
+
+       $ cp feed2diasp.json.example feed2diasp.json
+
+       You should make feed2diasp.pl executable wiith
+
+       $ chmod 750 feed2diasp.pl
+
+       Finally you can start updating your feed with
+
+       $ ./feed2diasp.pl
+
+       You may want to put that in a cron job.
+
+   OOPPTTIIOONNSS
+       All options are set in feed2yaml.json . I used JSON rather than YAML to
+       reduce dependencies
+
+RREEQQUUIIRREEMMEENNTTSS
+       Perl 5.10.0 Data::Dumper JSON XML::Feed WWW::Mechanize HTML::Strip
+       Readonly
+
+CCOOPPYYRRIIGGHHTT AANNDD LLIICCEENNCCEE
+                  Copyright (C)2011 Charlie Harvey
+
+        This program is free software; you can redistribute it and/or
+        modify it under the terms of the GNU General Public License
+        as published by the Free Software Foundation; either version
+        2 of the License, or (at your option) any later version.
+
+        This program is distributed in the hope that it will be
+        useful, but WITHOUT ANY WARRANTY; without even the implied
+        warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+        PURPOSE.  See the GNU General Public License for more
+        details.
+
+        You should have received a copy of the GNU General Public
+        License along with this program; if not, write to the Free
+        Software Foundation, Inc., 59 Temple Place - Suite 330,
+        Boston, MA  02111-1307, USA.
+        Also available on line: http://www.gnu.org/copyleft/gpl.html
+
+
+
+perl v5.10.1                      2011-12-03                     FEED2DIASP(1)
