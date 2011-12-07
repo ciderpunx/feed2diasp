@@ -35,6 +35,8 @@ for my $feed (@{$config->{feeds}}){
 		my $msg = '';
 		$msg .= format_msg($_->summary->body) if ($_->summary && $_->summary->body);
 		$msg .= format_msg($_->content->body) if ($_->content && $_->content->body);
+		$msg .= "\nRead more at: " 
+				. $_->link if ($_->link);
 		# say "Status update: " . $_->link . "\n" . $msg; # DEBUG
 		$mech = status_update($config, $mech, $msg);
 		$new_items++;
