@@ -35,6 +35,8 @@ for my $feed (@{$config->{feeds}}){
 		my $msg = '';
 		$msg .= format_msg($_->summary->body) if ($_->summary && $_->summary->body);
 		$msg .= format_msg($_->content->body) if ($_->content && $_->content->body);
+		$msg .= "\nRead more at: " 
+				. $_->link if ($_->link);
 		# say "Status update: " . $_->link . "\n" . $msg; # DEBUG
 		$mech = status_update($config, $mech, $msg);
 		$new_items++;
@@ -58,10 +60,10 @@ sub do_diaspora_login {
 	my $login_url = "https://" . $config->{pod} . "/users/sign_in";
 	my $mech = WWW::Mechanize->new();
   $mech->get($login_url);
-	my $form = $mech->form_id('new_user');
+	my $form = $mech->form_id('user_new');
 	my $auth_token = $form->value('authenticity_token'); # not quite sure how this works. 
   my $res = $mech->submit_form(
-        form_id			=> 'new_user',
+        form_id			=> 'user_new',
         fields => {
             'user[password]'     => $config->{password},
             'user[username]'     => $config->{username},

@@ -1,7 +1,7 @@
 {
 		"pod"       : "diasp.org",    
-		"username"  : "ciderpunx",  
-		"password"  : "bl00mers",     
+		"username"  : "USER",  
+		"password"  : "PASS",     
 		"max_items"	: 2,             
 		"feeds"     : [              
 			"https://api.twitter.com/1/statuses/user_timeline.rss?screen_name=ciderpunx"
