@@ -60,10 +60,10 @@ sub do_diaspora_login {
 	my $login_url = "https://" . $config->{pod} . "/users/sign_in";
 	my $mech = WWW::Mechanize->new();
   $mech->get($login_url);
-	my $form = $mech->form_id('user_new');
+	my $form = $mech->form_id('new_user');
 	my $auth_token = $form->value('authenticity_token'); # not quite sure how this works. 
   my $res = $mech->submit_form(
-        form_id			=> 'user_new',
+        form_id			=> 'new_user',
         fields => {
             'user[password]'     => $config->{password},
             'user[username]'     => $config->{username},
